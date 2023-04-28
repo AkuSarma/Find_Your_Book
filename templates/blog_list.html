@@ -1,0 +1,16 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+<a href="{% url 'blog-create' %}" class="create-post">Create Post</a>
+{% for each in object_list %}
+<div class="blog-post">
+    <h3 class="blog-title">{{ each.title }}</h3>
+    <p id="blog-author">By {{ each.author }} at {{ each.uploadTime }}</p>
+    <hr>
+    <p id="blog-desc">{{ each.description }}</p>
+</div>
+{% empty %}
+<h3>NO posts are available</h3>
+{% endfor %}
+{% endblock content %}

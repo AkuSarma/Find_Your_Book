@@ -39,10 +39,10 @@ python manage.py test
 - Buying.
 - Selling.
 - Searhing
+- Blog
 
 #### Under development:
-- Chating for negotiation of price
-- Community forum
+- Chating for negotiation of price (Biding system)
 
 #### Future ideas:
 - Recomendation system
