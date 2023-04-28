@@ -3,12 +3,33 @@
 {% block content %}
 <h2>Seller: {{ seller_name }}</h2>
 <div class="chatbox">
-    <div class="messages">
+    <div class="messages" id="msg">
         <!-- Messages will be displayed here -->
     </div>
     <div class="input">
-        <input type="text" placeholder="Type your message here...">
-        <button>Send</button>
+        <input type="text" placeholder="Type your message here..." id="msg-text">
+        <button id="send">Send</button>
     </div>
 </div>
+<script>
+    document.getElementById("send").addEventListener("click", sendMessage);
+    document.getElementById("msg-text").addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            document.getElementById("send").click();
+        }
+        });
+
+    function sendMessage(){
+        const message = document.createElement("div");
+        const chatArea = document.getElementById("msg");
+        const messageText = document.getElementById("msg-text");
+        let messageValue = messageText.value;
+        const textMessage = document.createTextNode(messageValue);
+
+        message.appendChild(textMessage);
+        message.classList += "message-send";
+        chatArea.appendChild(message);
+        messageText.value = "";
+    }
+</script>
 {% endblock content %}

@@ -102,6 +102,18 @@ form input[type=submit]{
     overflow-y: scroll;
 }
 
+.message-send {
+    color: white;
+    font-size: large;
+    padding: 10px;
+    background-color: #1bdd1b;
+    max-width: 50%;
+    margin-left: auto;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+}
+
 .input {
     display: flex;
     margin-top: 20px;
