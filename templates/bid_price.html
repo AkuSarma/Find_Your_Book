@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Seller: {{ seller_name }}</h2>
+<div class="chatbox">
+    <div class="messages">
+        <!-- Messages will be displayed here -->
+    </div>
+    <div class="input">
+        <input type="text" placeholder="Type your message here...">
+        <button>Send</button>
+    </div>
+</div>
+{% endblock content %}
