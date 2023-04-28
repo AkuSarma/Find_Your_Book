@@ -8,9 +8,9 @@ class BookTest(TestCase):
 
     def setUp(self): # filling user data (credentials)
         self.user = get_user_model().objects.create_user(
-            username = 'yash',
-            email = 'yashmarmat08@gmail.com',
-            password = 'secret',
+            username = 'pro-tester',
+            email = 'testmail@mail.com',
+            password = 'test',
         )
 
         self.book = Book.objects.create(    # filling Book model fields
@@ -37,7 +37,7 @@ class BookTest(TestCase):
         self.assertEqual(f'{self.book.book_available}', 'True')
 
     def test_book_list_view_for_logged_in_user(self):
-        self.client.login(username = 'yash', email='yashmarmat08@gmail.com', password='secret')
+        self.client.login(username = 'pro-tester', email='testmail@mail.com', password='test')
         request = self.client.get(reverse('list'))
         self.assertEqual(request.status_code, 200)
         self.assertContains(request, 'django for beginners')
@@ -51,7 +51,7 @@ class BookTest(TestCase):
         self.assertContains(request, '30')
 
     def test_book_detail_view_for_logged_in_user(self):
-        self.client.login(username = 'yash', email='yashmarmat08@gmail.com', password='secret')
+        self.client.login(username = 'pro-tester', email='testmail@mail.com', password='test')
         request = self.client.get(reverse('detail', args='1'))
         self.assertEqual(request.status_code, 200)
         self.assertContains(request, 'django for beginners')
@@ -67,7 +67,7 @@ class BookTest(TestCase):
         self.assertContains(request, '30')
 
     def test_checkout_view_for_logged_in_user(self):
-        self.client.login(username = 'yash', email='yashmarmat08@gmail.com', password='secret')
+        self.client.login(username = 'pro-tester', email='testmail@mail.com', password='test')
         request = self.client.get(reverse('checkout', args='1'))
         self.assertEqual(request.status_code, 200)
         self.assertContains(request, 'django for beginners')
@@ -88,7 +88,7 @@ class BookTest(TestCase):
     def test_book_when_out_of_stock(self):  # a second book is created which is out of stock
             book = Book.objects.create(
                 title = 'new book',
-                author = 'yash',
+                author = 'Aku',
                 description = 'anything',
                 price = '30',
                 image_url = 'https://forexample.jpg',
